@@ -8,7 +8,8 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
 
-
     fun inject(mainActivity: MainActivity)
+
+    // checking changes
 
 }
