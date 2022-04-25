@@ -18,7 +18,8 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     private lateinit var viewModel : CountryViewModel
-    private lateinit var adapter: CountryAdapter
+    @Inject
+    lateinit var adapter: CountryAdapter
 
     @Inject
     lateinit var viewModelFactory: CountryViewModelFactory
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         (application as MainApplication).appComponent.inject(this)
 
         viewModel=ViewModelProvider(this, viewModelFactory).get(CountryViewModel::class.java)
-        adapter= CountryAdapter()
+       // adapter= CountryAdapter()
         binding.recyclerView.adapter=adapter
         getCountries()
 
