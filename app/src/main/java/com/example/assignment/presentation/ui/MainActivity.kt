@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var adapter: CountryAdapter
 
+    //for new branch
+
     @Inject
     lateinit var viewModelFactory: CountryViewModelFactory
 
