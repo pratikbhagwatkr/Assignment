@@ -19,8 +19,7 @@ class GetCountryListUseCase @Inject constructor(private val repository: GetCount
         return try {
 
             val response = repository.getCountryList()
-            val list =
-                if (response.isNullOrEmpty()) emptyList<Countries>() else response.map { it.toDomainCountries() }
+            val list = if (response.isNullOrEmpty()) emptyList<Countries>() else response.map { it.toDomainCountries() }
             Resource.Success(data = list)
 
         } catch (e: HttpException) {
