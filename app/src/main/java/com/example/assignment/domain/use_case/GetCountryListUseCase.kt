@@ -1,6 +1,7 @@
 package com.example.assignment.domain.use_case
 
 import com.example.assignment.common.Resource
+import com.example.assignment.data.model.CountriesDTO
 import com.example.assignment.data.model.toDomainCountries
 import com.example.assignment.domain.model.Countries
 import com.example.assignment.domain.repository.GetCountryRepository
@@ -15,7 +16,7 @@ class GetCountryListUseCase @Inject constructor(private val repository: GetCount
 
 
 
-    suspend fun getData(): Resource<List<Countries>>{
+   /* suspend fun getData(): Resource<List<Countries>>{
         return try {
 
             val response = repository.getCountryList()
@@ -29,6 +30,16 @@ class GetCountryListUseCase @Inject constructor(private val repository: GetCount
         } catch (e: Exception) {
             Resource.Error(message = e.localizedMessage ?: "Something went wrong")
         }
+
+    }*/
+
+    suspend fun getDataa(): List<CountriesDTO>{
+
+
+            val response = repository.getCountryList()
+           // val list = if (response.isNullOrEmpty()) emptyList<Countries>() else response.map { it.toDomainCountries() }
+
+            return response
 
     }
 

@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getCountries(){
-        viewModel.getCountryList()
+        viewModel.getCountryListt()
     }
 
     private fun showProgress(){

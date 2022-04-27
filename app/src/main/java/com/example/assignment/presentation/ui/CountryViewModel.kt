@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.assignment.common.Resource
+import com.example.assignment.data.model.CountriesDTO
+import com.example.assignment.data.model.toDomainCountries
 import com.example.assignment.domain.model.Countries
 import com.example.assignment.domain.use_case.GetCountryListUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -26,24 +27,46 @@ class CountryViewModel (private val countryListUseCase: GetCountryListUseCase):V
     }
 
 
-    fun getCountryList() {
+//    fun getCountryList() {
+//        loading.value=true
+//        viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
+//            val response=countryListUseCase.getData()
+//            withContext(Dispatchers.Main) {
+//                when(response){
+//                    is Resource.Success -> {
+//                        loading.value=false
+//                        _countryRes.value= response.data ?: emptyList()
+//                    }
+//                    is Resource.Error -> {
+//                        loading.value=false
+//                         onError(response.message ?: "Something went wrong please try again")
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+    fun getCountryListt() {
         loading.value=true
         viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
-            val response=countryListUseCase.getData()
+            val response=countryListUseCase.getDataa()
             withContext(Dispatchers.Main) {
-                when(response){
-                    is Resource.Success -> {
+
                         loading.value=false
-                        _countryRes.value= response.data ?: emptyList()
-                    }
-                    is Resource.Error -> {
-                        loading.value=false
-                         onError(response.message ?: "Something went wrong please try again")
-                    }
+                         val list = CountryMapper.toModel(response!!)
+                        _countryRes.value= list ?: emptyList()
+
                 }
             }
-        }
+
     }
+
+
+    fun mapRespons(response: List<CountriesDTO>?): List<Countries> {
+        return if (response.isNullOrEmpty()) emptyList() else response.map { it.toDomainCountries() }
+
+    }
+
 
 
     private fun onError(message: String) {
