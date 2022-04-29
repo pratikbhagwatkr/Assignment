@@ -43,7 +43,7 @@ class CountryViewModelTest{
   }
 
   @Test
-  fun `on api call get valid input`(){
+  fun `on method call get valid input`(){
 
     runBlockingTest {
       whenever(getCountryListUseCase.getData()).thenReturn(

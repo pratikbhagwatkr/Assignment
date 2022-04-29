@@ -9,6 +9,7 @@ import com.example.assignment.data.model.CountriesDTO
 import com.example.assignment.data.model.toDomainCountries
 import com.example.assignment.domain.model.Countries
 import com.example.assignment.domain.use_case.GetCountryListUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,9 +18,10 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-
-class CountryViewModel (private val countryListUseCase: GetCountryListUseCase):ViewModel(){
+@HiltViewModel
+class CountryViewModel @Inject constructor (private val countryListUseCase: GetCountryListUseCase):ViewModel(){
 
     private val _countryState= MutableStateFlow<CountryState>(CountryState())
     val countryState:StateFlow<CountryState> = _countryState

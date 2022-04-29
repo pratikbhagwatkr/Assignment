@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     
-    //changes from origin master
+
     
 
     <application
@@ -14,10 +14,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Assignment">
+        android:theme="@style/Theme.Assignment"
+        android:usesCleartextTraffic="true">
 
         <activity
             android:name=".presentation.ui.MainActivity"
+            android:label="Countries"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

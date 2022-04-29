@@ -1,17 +1,15 @@
 package com.example.assignment
 
 import android.app.Application
-import com.example.assignment.di.AppComponent
-import com.example.assignment.di.DaggerAppComponent
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class MainApplication : Application() {
-
-    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        appComponent=DaggerAppComponent.builder().build()
+
 
     }
 }

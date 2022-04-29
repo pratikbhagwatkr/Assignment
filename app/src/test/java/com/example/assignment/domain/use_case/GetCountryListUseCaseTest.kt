@@ -50,15 +50,7 @@ class GetCountryListUseCaseTest{
         }
     }
 
-    @Test
-    fun `getData should return valid data as flow`(){
-        runBlockingTest {
-            whenever(repository.getCountryList()).thenReturn(mockCountriesModelList)
-            val res=usecase.getData().first()
-            assertEquals(Resource.Success(mockCountriesModelList), res)
 
-        }
-    }
 
 
 

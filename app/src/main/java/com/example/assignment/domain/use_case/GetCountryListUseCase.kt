@@ -18,7 +18,7 @@ class GetCountryListUseCase @Inject constructor(private val repository: GetCount
 
     fun getData(): Flow<Resource<List<Countries>>> =  flow{
          try {
-            emit(Resource.Loading())
+             emit(Resource.Loading())
             val response = getCountryList()
              emit(Resource.Success(data = response))
 

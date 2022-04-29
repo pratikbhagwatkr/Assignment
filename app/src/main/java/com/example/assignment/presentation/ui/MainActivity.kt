@@ -14,27 +14,25 @@ import com.example.assignment.R
 import com.example.assignment.databinding.ActivityMainBinding
 import com.example.assignment.domain.model.Countries
 import com.example.assignment.domain.use_case.GetCountryListUseCase
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     private lateinit var viewModel : CountryViewModel
     @Inject
     lateinit var adapter: CountryAdapter
 
-    //for new branch
 
-    @Inject
-    lateinit var viewModelFactory: CountryViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        (application as MainApplication).appComponent.inject(this)
 
-        viewModel=ViewModelProvider(this, viewModelFactory).get(CountryViewModel::class.java)
+
+        viewModel=ViewModelProvider(this).get(CountryViewModel::class.java)
 
         binding.recyclerView.adapter=adapter
         getCountries()

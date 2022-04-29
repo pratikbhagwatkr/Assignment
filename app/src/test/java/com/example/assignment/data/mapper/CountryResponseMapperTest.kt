@@ -18,10 +18,8 @@ class CountryResponseMapperTest{
 
     @Test
     fun `map CountryDTO response to Countries`(){
-
         val response=mapper.toDomainModel(mockCountriesDTOList)
-
         assertEquals(mockCountriesModelList,response)
-
     }
+
 }
