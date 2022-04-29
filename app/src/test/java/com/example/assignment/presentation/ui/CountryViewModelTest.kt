@@ -1,6 +1,7 @@
 package com.example.assignment.presentation.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.assignment.common.Resource
 import com.example.assignment.domain.use_case.GetCountryListUseCase
 import kotlinx.coroutines.runBlocking
 
@@ -11,6 +12,9 @@ import org.mockito.MockitoAnnotations
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.*
 import org.junit.*
 import org.mockito.kotlin.*
@@ -42,18 +46,17 @@ class CountryViewModelTest{
   fun `on api call get valid input`(){
 
     runBlockingTest {
-      whenever(
-        getCountryListUseCase.getDataa()
-      ).thenReturn(
-        mockCountriesDTOList
+      whenever(getCountryListUseCase.getData()).thenReturn(
+        flow {
+          emit(Resource.Success(mockCountriesModelList))
+        }
       )
 
-      whenever(viewModel.mapRespons(anyOrNull())).thenReturn(mockCountriesModelList)
-      viewModel.getCountryListt()
-      val response=viewModel.countryList.value
-      verify(viewModel).getCountryListt()
-      Assert.assertEquals(mockCountriesModelList, response)
+      viewModel.getCountryList()
 
+      verify(getCountryListUseCase).getData()
+
+      Assert.assertEquals(mockCountriesModelList, viewModel.countryState.value.data)
 
     }
 

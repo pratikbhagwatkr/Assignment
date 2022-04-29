@@ -1,6 +1,7 @@
 package com.example.assignment.di
 
 import com.example.assignment.common.Constants
+import com.example.assignment.data.mapper.CountryResponseMapper
 import com.example.assignment.data.remote.ApiInterface
 import com.example.assignment.data.repository.GetCountryRepositoryImpl
 import com.example.assignment.domain.repository.GetCountryRepository
@@ -38,8 +39,8 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideGetCountryRepository(apiInterface: ApiInterface): GetCountryRepository{
-        return GetCountryRepositoryImpl(apiInterface)
+    fun provideGetCountryRepository(apiInterface: ApiInterface,mapper: CountryResponseMapper): GetCountryRepository{
+        return GetCountryRepositoryImpl(apiInterface,mapper)
     }
 
 }

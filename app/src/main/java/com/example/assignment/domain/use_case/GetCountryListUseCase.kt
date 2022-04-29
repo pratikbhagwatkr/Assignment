@@ -16,32 +16,29 @@ class GetCountryListUseCase @Inject constructor(private val repository: GetCount
 
 
 
-   /* suspend fun getData(): Resource<List<Countries>>{
-        return try {
-
-            val response = repository.getCountryList()
-            val list = if (response.isNullOrEmpty()) emptyList<Countries>() else response.map { it.toDomainCountries() }
-            Resource.Success(data = list)
+    fun getData(): Flow<Resource<List<Countries>>> =  flow{
+         try {
+            emit(Resource.Loading())
+            val response = getCountryList()
+             emit(Resource.Success(data = response))
 
         } catch (e: HttpException) {
-            Resource.Error(message = e.localizedMessage ?: "Unknown Error")
+            emit(Resource.Error(message = e.localizedMessage ?: "Unknown Error"))
         } catch (e: IOException) {
-            Resource.Error(message = e.localizedMessage ?: "Check Internet Connection")
+            emit(Resource.Error(message = e.localizedMessage ?: "Check Internet Connection"))
         } catch (e: Exception) {
-            Resource.Error(message = e.localizedMessage ?: "Something went wrong")
+            emit(Resource.Error(message = e.localizedMessage ?: "Something went wrong"))
         }
 
-    }*/
-
-    suspend fun getDataa(): List<CountriesDTO>{
-
-
-            val response = repository.getCountryList()
-           // val list = if (response.isNullOrEmpty()) emptyList<Countries>() else response.map { it.toDomainCountries() }
-
-            return response
-
     }
+
+   suspend fun getCountryList():List<Countries>{
+       return repository.getCountryList()
+    }
+
+
+
+
 
 
 

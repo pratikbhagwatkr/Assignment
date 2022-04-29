@@ -8,7 +8,7 @@ import com.example.assignment.domain.model.Countries
 val mockCountriesModel = Countries(
     "India",
      "India",
-            "India"
+            "India",
 
 )
 
@@ -24,11 +24,11 @@ val mockCountryDTO = CountriesDTO(
     "z",
     "w",
     "d",
-    Flags("",""),
+    Flags("India",""),
     true,
     true,
     listOf(0.0,0.0),
-    Name("India","India"),
+    Name("India","India",),
     90,
     "h",
     "l",
