@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class CountryResponseMapper @Inject constructor() {
 
-    fun toDomainModel(response:List<CountriesDTO>) : List<Countries>{
+    fun toDomainModel(response:List<CountriesDTO>?) : List<Countries>{
         return  if (response.isNullOrEmpty()) emptyList<Countries>()
         else response.map { it.toDomainCountries() }
     }

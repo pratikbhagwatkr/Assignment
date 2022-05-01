@@ -1,10 +1,8 @@
 package com.example.assignment.domain.use_case
 
-import com.example.assignment.common.Resource
-import com.example.assignment.data.model.CountriesDTO
-import com.example.assignment.data.model.toDomainCountries
 import com.example.assignment.domain.model.Countries
 import com.example.assignment.domain.repository.GetCountryRepository
+import com.example.assignment.domain.resource.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -14,12 +12,10 @@ import javax.inject.Inject
 
 class GetCountryListUseCase @Inject constructor(private val repository: GetCountryRepository){
 
-
-
     fun getData(): Flow<Resource<List<Countries>>> =  flow{
          try {
              emit(Resource.Loading())
-            val response = getCountryList()
+             val response = getCountryList()
              emit(Resource.Success(data = response))
 
         } catch (e: HttpException) {
@@ -29,17 +25,9 @@ class GetCountryListUseCase @Inject constructor(private val repository: GetCount
         } catch (e: Exception) {
             emit(Resource.Error(message = e.localizedMessage ?: "Something went wrong"))
         }
-
     }
 
    suspend fun getCountryList():List<Countries>{
        return repository.getCountryList()
     }
-
-
-
-
-
-
-
 }
