@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignment.MainApplication
 import com.example.assignment.R
 import com.example.assignment.databinding.ActivityMainBinding
-import com.example.assignment.domain.model.Countries
-import com.example.assignment.domain.use_case.GetCountryListUseCase
+
 import com.example.assignment.presentation.adapter.CountryAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect

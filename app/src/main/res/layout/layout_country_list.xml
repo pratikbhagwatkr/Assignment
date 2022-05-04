@@ -8,7 +8,7 @@
 
         <variable
             name="country"
-            type="com.example.assignment.domain.model.Countries" />
+            type="com.example.domain.domain.model.Countries" />
 
     </data>
 

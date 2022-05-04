@@ -1,10 +1,10 @@
 package com.example.assignment.presentation.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.assignment.domain.model.Countries
-import com.example.assignment.domain.resource.Resource
-import com.example.assignment.domain.use_case.GetCountryListUseCase
 import com.example.assignment.mockCountriesModelList
+import com.example.domain.domain.model.Countries
+import com.example.domain.domain.resource.Resource
+import com.example.domain.domain.use_case.GetCountryListUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.*

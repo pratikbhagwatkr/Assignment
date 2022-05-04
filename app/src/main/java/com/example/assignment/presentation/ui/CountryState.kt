@@ -1,9 +1,10 @@
 package com.example.assignment.presentation.ui
 
-import com.example.assignment.domain.model.Countries
+import com.example.domain.domain.model.Countries
+
 
 data class CountryState (
-      val data: List<Countries>?=null,
-      val error: String="",
-      val isLoading: Boolean=false
+    val data: List<Countries>?=null,
+    val error: String="",
+    val isLoading: Boolean=false
         )

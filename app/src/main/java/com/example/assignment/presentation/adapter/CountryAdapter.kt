@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.databinding.LayoutCountryListBinding
-import com.example.assignment.domain.model.Countries
+import com.example.domain.domain.model.Countries
+
 import javax.inject.Inject
 
 

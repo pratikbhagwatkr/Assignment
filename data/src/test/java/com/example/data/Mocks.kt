@@ -1,4 +1,4 @@
-package com.example.assignment
+package com.example.data
 
 import com.example.data.data.entity.CountriesDTO
 import com.example.data.data.entity.Flags

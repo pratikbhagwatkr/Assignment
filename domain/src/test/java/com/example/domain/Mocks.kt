@@ -1,10 +1,10 @@
-package com.example.assignment
+package com.example.domain
+
 
 import com.example.data.data.entity.CountriesDTO
 import com.example.data.data.entity.Flags
 import com.example.data.data.entity.Name
 import com.example.domain.domain.model.Countries
-
 
 val mockCountriesModel = Countries(
     "India",

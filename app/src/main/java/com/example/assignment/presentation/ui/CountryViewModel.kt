@@ -2,8 +2,9 @@ package com.example.assignment.presentation.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.assignment.domain.resource.Resource
-import com.example.assignment.domain.use_case.GetCountryListUseCase
+import com.example.domain.domain.resource.Resource
+import com.example.domain.domain.use_case.GetCountryListUseCase
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

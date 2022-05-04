@@ -1,11 +1,12 @@
 package com.example.assignment.presentation.di
 
-import com.example.assignment.data.mapper.CountryResponseMapper
-import com.example.assignment.data.repository.GetCountryRepositoryImpl
-import com.example.assignment.data.source.DataSource
-import com.example.assignment.data.source.RemoteDataSourceImpl
-import com.example.assignment.data.source.remote.service.ApiService
-import com.example.assignment.domain.repository.GetCountryRepository
+
+import com.example.data.data.mapper.CountryResponseMapper
+import com.example.data.data.repository.GetCountryRepositoryImpl
+import com.example.data.data.source.DataSource
+import com.example.data.data.source.RemoteDataSourceImpl
+import com.example.data.data.source.remote.service.ApiService
+import com.example.domain.domain.repository.GetCountryRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,14 +44,14 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideDataSource(apiService: ApiService):DataSource.RemoteDataSource{
-        return RemoteDataSourceImpl(apiService)
+    fun provideDataSource(apiService: ApiService,mapper: CountryResponseMapper): DataSource.RemoteDataSource{
+        return RemoteDataSourceImpl(apiService,mapper)
     }
 
     @Singleton
     @Provides
-    fun provideGetCountryRepository(remoteDataSource: DataSource.RemoteDataSource, mapper: CountryResponseMapper): GetCountryRepository {
-        return GetCountryRepositoryImpl(remoteDataSource,mapper)
+    fun provideGetCountryRepository(remoteDataSource: DataSource.RemoteDataSource): GetCountryRepository {
+        return GetCountryRepositoryImpl(remoteDataSource)
     }
 
 }
