@@ -8,7 +8,8 @@ import java.lang.Exception
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(private val apiInterface: ApiService,
-                                               private val mapper: CountryResponseMapper) : DataSource.RemoteDataSource {
+                                               private val mapper: CountryResponseMapper)
+    : DataSource.RemoteDataSource {
 
     override suspend fun getCountryList(): List<Countries> =
         try {

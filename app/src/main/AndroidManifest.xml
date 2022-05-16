@@ -3,9 +3,6 @@
     package="com.example.assignment">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    
-
-    
 
     <application
         android:name=".MainApplication"

@@ -1,9 +1,11 @@
-package com.example.assignment.domain.use_case
+package com.example.domain.usecases
 
-import com.example.assignment.domain.repository.GetCountryRepository
-import com.example.assignment.mockCountriesModelList
-import kotlinx.coroutines.test.runBlockingTest
+
+import com.example.domain.domain.repository.GetCountryRepository
+import com.example.domain.domain.use_case.GetCountryListUseCase
+import com.example.domain.mockCountriesModelList
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

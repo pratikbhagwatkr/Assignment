@@ -29,7 +29,6 @@ class CountryAdapter @Inject constructor() : RecyclerView.Adapter<CountryAdapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.viewHolder.country= this.list?.get(position)
 
-
     }
 
     override fun getItemCount(): Int {

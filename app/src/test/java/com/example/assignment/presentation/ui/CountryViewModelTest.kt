@@ -24,8 +24,6 @@ class CountryViewModelTest{
     @Mock
     lateinit var getCountryListUseCase: GetCountryListUseCase
 
-
-
     lateinit var viewModel: CountryViewModel
 
     @Before
